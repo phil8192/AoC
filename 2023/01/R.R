@@ -1,4 +1,3 @@
-# https://adventofcode.com/2023/day/1
 x <- read.csv("input.txt", header=F)$V1
 
 sum_it <- function(x) {
