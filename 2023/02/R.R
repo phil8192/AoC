@@ -19,5 +19,5 @@ df <- cbind(id=1:length(x), do.call(rbind, lapply(x, function(v) {
 # 1: 2593
 sum(df[with(df, red <= 12 & green <= 13 & blue <= 14), ]$id)
 
-# 2. 54699
+# 2: 54699
 sum(apply(df[, -1], 1, prod))
