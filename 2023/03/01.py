@@ -1,13 +1,3 @@
-# cat input.txt                 \
-#     |sed 's/./\0\n/g'         \
-#     |sort                     \
-#     |uniq                     \
-#     |grep -v "[0-9]"          \
-#     |grep -v "\."             \
-#     |tail -n+2                \
-#     |awk '{print "\""$1"\""}' \
-#     |paste -sd,
-# :)
 s = set(["#","%","&","*","+","-","/","=","@","$"])
 d = [str(n) for n in range(10)]
 a = []
@@ -50,5 +40,3 @@ for i in range(r+1):
         part_sum += n
 
 print(part_sum)
-    
-
