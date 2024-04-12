@@ -25,10 +25,10 @@ part_sum = 0
 
 for i in range(r+1):
     n, p, has_adj = 0, 0, False
-    for j in reversed(range(c+1)):
+    for j in reversed(range(c+1)): # visit numbers in their inreasing power.,,,
         cur = a[i][j]
         if cur in d:
-            n += int(cur) * 10**p
+            n += int(cur) * 10**p  # no casting or stacks :p ,,,,,,,,,,,,,,,,,,
             p += 1
             if not has_adj and adj(i, j):
                 has_adj = True
