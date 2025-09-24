@@ -1,0 +1,47 @@
+!/bin/bash
+
+# arrays
+scan_a() {
+  cat x.txt | {
+    read x
+    s=($(echo $x |grep -o .))
+    n=${#s[@]}-$1
+    for((i=0;i<=$n;i++)) ;do
+      if [ $(echo ${s[@]:$i:$1} \
+             |tr ' ' '\n'       \
+             |sort              \
+             |uniq              \
+             |wc -l) == $1 ] ;then
+        echo $(($1+$i))
+        break
+      fi
+    done
+  }
+}
+
+# head, tail
+scan_l() {
+  cat x.txt | {
+    read x
+    n=$(echo $x |grep -o . |wc -l)
+    for((i=$n;--i>=$1;)) ;do
+      if [ $(echo $x    \
+             |grep -o . \
+             |tail -$i  \
+             |head -$1  \
+             |sort      \
+             |uniq      \
+             |wc -l) == $1 ] ;then
+        echo $(($1+$n-$i))
+        break
+    fi
+  done
+  }
+}
+
+scan_a 4
+scan_a 14
+
+scan_l 4
+scan_l 14
+y

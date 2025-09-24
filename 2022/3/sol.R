@@ -1,0 +1,5 @@
+x <- read.csv("x.txt", header=F)
+chars <- c(letters, LETTERS)
+priorities <- apply(x, 1, function(x) match(strsplit(x,"")[[1]], chars))
+sum(unlist(lapply(priorities, function(x) intersect(x[1:(length(x)/2)], x[(length(x)/2)+1:length(x)]))))
+sum(tapply(priorities, ceiling(1:300 / 3), function(x) Reduce(intersect, x)))

@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# cut $1 into strings of length $2 by window.
+#
+# args: string, window length
+#
+# example:
+#
+# roll "1234567" 3
+#  123
+#  234
+#  345
+#  456
+#  567
+
+roll() {
+  for((i=$(echo $1 |grep -o . |wc -l) + 1 ;--i>=$2; )) ;do
+    echo $1 \
+        |grep -o . \
+	|tail -$i \
+	|head -$2 \
+	|tr -d '\n'
+    echo
+  done
+}
+
+
+
+
